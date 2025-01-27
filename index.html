@@ -8,6 +8,7 @@
 <link href="css/tailwind.css" rel="stylesheet">
 <link href="css/app.css" rel="stylesheet">
 <script src="js/app.js" defer="" type="6a58dadeb3f35905a6707dcc-text/javascript"></script>
+<audio id="background-music" src="song.mp3" preload="auto"></audio>
 </head>
 <body class="relative bg-black overflow-x-hidden grid lg:grid-cols-4 gap-4 p-4">
 <div class="h-full left-0 top-0 bottom-0 w-full">
@@ -359,6 +360,27 @@
 </div>
 <script src="js/rocket-loader.min.js" data-cf-settings="6a58dadeb3f35905a6707dcc-|49" defer=""></script><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" data-cf-beacon="{" rayid":"8c0e75d2f8359719","version":"2024.8.0","r":1,"token":"5bce6751a1e14ab09772c4aecaa514b6","servertiming":{"name":{"cfextpri":true,"cfl4":true}}}"="" crossorigin="anonymous"></script>
 
+
+ <script>
+        // Get the audio element
+        const audio = document.getElementById('background-music');
+
+        // Play the audio when the page loads
+        window.onload = () => {
+            // Check if user interaction is required to play audio (browser restrictions)
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    console.log("Music is playing");
+                }).catch(error => {
+                    console.log("Playback was prevented. User interaction is required.");
+                });
+            }
+        };
+    </script>
+
+ 
 <script language=JavaScript>
 //Disable right mouse click Script
 
