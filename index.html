@@ -8,6 +8,7 @@
 <link href="css/tailwind.css" rel="stylesheet">
 <link href="css/app.css" rel="stylesheet">
 <script src="js/app.js" defer="" type="6a58dadeb3f35905a6707dcc-text/javascript"></script>
+<audio src="song.mp3" autoplay loop></audio>
 </head>
 <body class="relative bg-black overflow-x-hidden grid lg:grid-cols-4 gap-4 p-4">
 <div class="h-full left-0 top-0 bottom-0 w-full">
@@ -358,42 +359,6 @@
 </div>
 </div>
 <script src="js/rocket-loader.min.js" data-cf-settings="6a58dadeb3f35905a6707dcc-|49" defer=""></script><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" data-cf-beacon="{" rayid":"8c0e75d2f8359719","version":"2024.8.0","r":1,"token":"5bce6751a1e14ab09772c4aecaa514b6","servertiming":{"name":{"cfextpri":true,"cfl4":true}}}"="" crossorigin="anonymous"></script>
-<script src="song.js"></script>
-
- <script>
-        let keys = Object.keys(playlist); // Extract keys (e.g., song_1, song_2)
-        let count = 0;
-
-        // Load the first song dynamically
-        $('.my_audio').append("<source id='sound_src' src=" + playlist[keys[0]] + " type='audio/mpeg'>");
-        $(".my_audio").trigger('load'); // Load the first song
-
-        // Function to play or stop the audio
-        function play_audio(task) {
-            if (task == 'play') {
-                $(".my_audio").trigger('play');
-            }
-            if (task == 'stop') {
-                $(".my_audio").trigger('pause');
-                $(".my_audio").prop("currentTime", 0);
-            }
-        }
-
-        // Play the next song when the current song ends
-        $('.my_audio').on('ended', function () {
-            count++;
-            if (count < keys.length) {
-                $("#sound_src").attr("src", playlist[keys[count]]);
-                $(".my_audio").trigger('load');
-                play_audio('play');
-            } else {
-                count = 0; // Reset to the first song
-                $("#sound_src").attr("src", playlist[keys[count]]);
-                $(".my_audio").trigger('load');
-                play_audio('play');
-            }
-        });
-    </script>
 
  
 <script language=JavaScript>
